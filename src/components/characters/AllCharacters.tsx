@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_ALL_CHARACTERS } from "../../gql/queries/Queries";
 import { Data } from "./types";
+import { Button } from "../ui/button";
 
 const AllCharacters = () => {
   const { error, data } = useQuery<Data>(GET_ALL_CHARACTERS);
@@ -20,6 +21,9 @@ const AllCharacters = () => {
             <p>{character.name}</p>
             <div>
               <p className="text-sm">Species: {character.species}</p>
+              <Button className="rounded-xl" variant={"default"} color="blue">
+                View
+              </Button>
             </div>
           </div>
         ))}
