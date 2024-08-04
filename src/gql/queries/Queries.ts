@@ -100,3 +100,23 @@ query Locations($page: Int, $filter: FilterLocation) {
     }
   }
 }`
+
+export const GET_LOCATION_BY_ID = gql`
+query LocationsByIds($ids: [ID!]!) {
+  locationsByIds(ids: $ids) {
+    dimension
+    id
+    name
+    type
+    residents {
+        name
+        image
+        species
+        status
+        type
+        gender
+        id
+    }
+  }
+}
+`
