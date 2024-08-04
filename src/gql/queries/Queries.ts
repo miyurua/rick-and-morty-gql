@@ -14,3 +14,24 @@ query Query {
     }
   }
 }`
+
+export const GET_CHARACTER_BY_ID = gql`
+query Query($ids: [ID!]!) {
+  charactersByIds(ids: $ids) {
+    created
+    gender
+    id
+    image
+    species
+    status
+    type
+    name
+    origin {
+      created
+      dimension
+      name
+      id
+      type
+    }
+  }
+}`

@@ -15,3 +15,27 @@ export type Characters = {
 export type Data = {
     characters: Characters
 }
+
+export type CharactersById = {
+    created: string
+    gender: string
+    id: string
+    image: string
+    species: string
+    status: string
+    type: string
+    name: string
+    origin: Origin
+}
+
+export type Origin = {
+    created: string
+    dimension: string
+    name: string
+    id: string
+    type: string
+}
+
+export type CharactersByIdData = {
+    charactersByIds: CharactersById[]
+}
