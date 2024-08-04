@@ -39,6 +39,7 @@ const AllEpisodes = () => {
           setCurrentPage(1);
         }}
       />
+      <p className="text-4xl font-semibold">All Episodes</p>
       <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
         {data?.episodes.results.map((episode) => (
           <div

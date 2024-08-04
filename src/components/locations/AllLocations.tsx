@@ -39,6 +39,7 @@ const AllLocations = () => {
           setCurrentPage(1);
         }}
       />
+      <p className="text-4xl font-semibold">All Locations</p>
       <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
         {data?.locations.results.map((location) => (
           <div

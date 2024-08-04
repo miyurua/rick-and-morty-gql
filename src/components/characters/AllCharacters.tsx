@@ -41,6 +41,7 @@ const AllCharacters = () => {
           setCurrentPage(1);
         }}
       />
+      <p className="text-4xl font-semibold">All Characters</p>
       <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
         {loading
           ? Array.from({ length: 4 }).map((_, index) => (
