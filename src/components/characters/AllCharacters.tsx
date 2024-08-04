@@ -13,12 +13,19 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "../ui/pagination";
+import { Input } from "../ui/input";
 
 const AllCharacters = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentSearch, setCurrentSearch] = useState<string>("");
 
   const { loading, error, data } = useQuery<Data>(GET_ALL_CHARACTERS, {
-    variables: { page: currentPage },
+    variables: {
+      page: currentPage,
+      filter: {
+        name: currentSearch,
+      },
+    },
   });
 
   const navigate = useNavigate();
@@ -26,7 +33,13 @@ const AllCharacters = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="flex items-center justify-center p-5 flex-col">
+    <div className="flex items-center justify-center p-5 flex-col gap-5">
+      <Input
+        type="search"
+        placeholder="Search..."
+        className="rounded-xl w-full sm:w-1/3 border-slate-300"
+        onChange={(e) => setCurrentSearch(e.target.value)}
+      />
       <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
         {loading
           ? Array.from({ length: 4 }).map((_, index) => (
@@ -41,7 +54,7 @@ const AllCharacters = () => {
           : data?.characters.results.map((character) => (
               <div
                 key={character.id}
-                className="flex border rounded-xl p-4 gap-4 flex-col hover:cursor-pointer"
+                className="flex border rounded-xl p-4 gap-4 flex-col hover:cursor-pointer hover:bg-slate-200 duration-500"
                 onClick={() => {
                   navigate(`/all-characters/${character.id}`);
                 }}

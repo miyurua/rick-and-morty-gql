@@ -23,12 +23,15 @@ const SingleCharacter = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center w-full sm:w-1/4 gap-5">
+          <p className="text-4xl font-bold text-center">
+            {currentCharacter?.name}
+          </p>
+
           <img
             src={currentCharacter?.image}
             alt={currentCharacter?.name}
             className="flex border rounded-xl w-full"
           />
-          <p className="text-2xl font-bold">{currentCharacter?.name}</p>
           <div className="flex flex-col justify-start text-lg w-full gap-3">
             {/* character info */}
             <p className="font-semibold">Character Information</p>

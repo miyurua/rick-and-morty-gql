@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_ALL_CHARACTERS = gql`
-query Query($page: Int) {
-  characters(page: $page) {
+query Query($filter: FilterCharacter, $page: Int) {
+  characters(filter: $filter, page: $page) {
     results {
       name
       image
