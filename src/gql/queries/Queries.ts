@@ -60,3 +60,22 @@ query Episodes($page: Int, $filter: FilterEpisode) {
   }
 }
 `
+export const GET_EPISODE_BY_ID = gql`
+query Query($ids: [ID!]!) {
+  episodesByIds(ids: $ids) {
+    air_date
+    episode
+    name
+    id
+     characters {
+        name
+        image
+        species
+        status
+        type
+        gender
+        id
+      }
+  }
+}
+`
