@@ -3,16 +3,30 @@ import { GET_ALL_CHARACTERS } from "../../gql/queries/Queries";
 import { Data } from "./types";
 import { Skeleton } from "../ui/skeleton";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "../ui/pagination";
 
 const AllCharacters = () => {
-  const { loading, error, data } = useQuery<Data>(GET_ALL_CHARACTERS);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  const { loading, error, data } = useQuery<Data>(GET_ALL_CHARACTERS, {
+    variables: { page: currentPage },
+  });
 
   const navigate = useNavigate();
 
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="flex items-center justify-center p-5">
+    <div className="flex items-center justify-center p-5 flex-col">
       <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
         {loading
           ? Array.from({ length: 4 }).map((_, index) => (
@@ -55,6 +69,61 @@ const AllCharacters = () => {
               </div>
             ))}
       </div>
+
+      <Pagination className="py-5">
+        <PaginationContent>
+          <PaginationItem
+            onClick={() => {
+              currentPage === 1
+                ? setCurrentPage(1)
+                : setCurrentPage(currentPage - 1);
+            }}
+            className="hover:cursor-pointer"
+          >
+            <PaginationPrevious />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink
+              isActive
+              onClick={() => {
+                setCurrentPage(currentPage);
+              }}
+              className="hover:cursor-pointer"
+            >
+              {currentPage}
+            </PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink
+              onClick={() => {
+                setCurrentPage(currentPage + 1);
+              }}
+              className="hover:cursor-pointer"
+            >
+              {currentPage + 1}
+            </PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink
+              onClick={() => {
+                setCurrentPage(currentPage + 2);
+              }}
+              className="hover:cursor-pointer"
+            >
+              {currentPage + 2}
+            </PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationEllipsis />
+          </PaginationItem>
+          <PaginationItem
+            onClick={() => setCurrentPage(currentPage + 1)}
+            className="hover:cursor-pointer"
+          >
+            <PaginationNext />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </div>
   );
 };
