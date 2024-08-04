@@ -1,17 +1,23 @@
 import { Button } from "../ui/button";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
+import { MdOutlineWavingHand } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { GiTeleport } from "react-icons/gi";
+import { GiLongLeggedSpider } from "react-icons/gi";
+import { CgGhostCharacter } from "react-icons/cg";
+import { FaPeopleGroup } from "react-icons/fa6";
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
     <div className="flex flex-grow flex-col items-center justify-center p-5 gap-5">
-      <p className="text-4xl font-semibold text-center">
-        Welcome to Rick and Morty Wiki
+      <p className="text-4xl font-semibold text-center flex gap-4 items-center">
+        Welcome to Rick and Morty Wiki <MdOutlineWavingHand />
       </p>
       <div className="flex w-full sm:w-1/2  flex-col gap-5">
-        <p className="flex justify-start text-2xl font-semibold">
+        <p className="flex justify-start text-2xl font-semibold flex-row gap-4 items-center">
+          <GiTeleport />
           About Rick and Morty
         </p>
         <p className="text-justify">
@@ -21,7 +27,10 @@ const Home = () => {
           find comprehensive information about every episode, character,
           location, and more!
         </p>
-        <p className="text-2xl font-semibold">Explore the Multiverse</p>
+        <p className="flex justify-start text-2xl font-semibold flex-row gap-4 items-center">
+          <GiLongLeggedSpider />
+          Explore the Multiverse
+        </p>
         <p className="text-justify">
           Dive into the multiverse with us as we explore the bizarre and
           intriguing world of Rick Sanchez, the eccentric and often
@@ -29,7 +38,10 @@ const Home = () => {
           grandson, Morty Smith. From their wild interdimensional adventures to
           their everyday life on Earth, we cover it all.
         </p>
-        <p className="text-2xl font-semibold">What You Can Find Here:</p>
+        <p className="flex justify-start text-2xl font-semibold flex-row gap-4 items-center">
+          <CgGhostCharacter />
+          What You Can Find Here:
+        </p>
         <p className="text-justify">
           <ul className="flex flex-col gap-4">
             <li>
@@ -51,7 +63,10 @@ const Home = () => {
           </ul>
         </p>
 
-        <p className="text-2xl font-semibold">Join the Community</p>
+        <p className="flex justify-start text-2xl font-semibold flex-row gap-4 items-center">
+          <FaPeopleGroup />
+          Join the Community
+        </p>
         <p className="text-justify">
           Connect with fellow fans, contribute to our growing database, and
           share your theories and insights. Whether you're a seasoned fan or new
