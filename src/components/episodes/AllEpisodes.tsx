@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Data } from "./types";
 import { GET_ALL_EPISODES } from "@/gql/queries/Queries";
 import {
