@@ -35,3 +35,28 @@ query Query($ids: [ID!]!) {
     }
   }
 }`
+
+export const GET_ALL_EPISODES = gql`
+query Episodes($page: Int) {
+  episodes(page: $page) {
+    info {
+      count
+    }
+    results {
+      id
+      episode
+      air_date
+      name
+      characters {
+        name
+        image
+        species
+        status
+        type
+        gender
+        id
+      }
+    }
+  }
+}
+`

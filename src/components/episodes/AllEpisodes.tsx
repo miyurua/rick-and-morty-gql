@@ -1,8 +1,7 @@
 import { useQuery } from "@apollo/client";
-import { GET_ALL_CHARACTERS } from "../../gql/queries/Queries";
+import React, { useState } from "react";
 import { Data } from "./types";
-import { Skeleton } from "../ui/skeleton";
-import { useState } from "react";
+import { GET_ALL_EPISODES } from "@/gql/queries/Queries";
 import {
   Pagination,
   PaginationContent,
@@ -12,58 +11,33 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "../ui/pagination";
-import { Input } from "../ui/input";
-import CharacterCard from "../common/CharacterCard";
+import { useNavigate } from "react-router-dom";
 
-const AllCharacters = () => {
+const AllEpisodes = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [currentSearch, setCurrentSearch] = useState<string>("");
-
-  const { loading, error, data } = useQuery<Data>(GET_ALL_CHARACTERS, {
-    variables: {
-      page: currentPage,
-      filter: {
-        name: currentSearch,
-      },
-    },
+  const navigate = useNavigate();
+  const { data } = useQuery<Data>(GET_ALL_EPISODES, {
+    variables: { page: currentPage },
   });
-
-  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <div className="flex items-center justify-center p-5 flex-col gap-5">
-      <Input
-        type="search"
-        placeholder="Search..."
-        className="rounded-xl w-full sm:w-1/3 border-slate-300"
-        onChange={(e) => {
-          setCurrentSearch(e.target.value);
-          setCurrentPage(1);
-        }}
-      />
       <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
-        {loading
-          ? Array.from({ length: 4 }).map((_, index) => (
-              <div className="flex flex-col space-y-3" key={index}>
-                <Skeleton className="h-[125px] w-[250px] rounded-xl" />
-                <div className="space-y-2">
-                  <Skeleton className="h-4 w-[250px]" />
-                  <Skeleton className="h-4 w-[200px]" />
-                </div>
-              </div>
-            ))
-          : data?.characters.results.map((character) => (
-              <CharacterCard
-                id={character.id}
-                image={character.image}
-                status={character.status}
-                name={character.name}
-                species={character.species}
-                key={character.id}
-              />
-            ))}
+        {data?.episodes.results.map((episode) => (
+          <div
+            className="flex border rounded-xl p-4 gap-4 flex-col hover:cursor-pointer hover:bg-slate-200 duration-500"
+            onClick={() => {
+              navigate(`/all-episodes/${episode.id}`);
+            }}
+          >
+            <p className="font-semibold">{episode.name}</p>
+            <p>
+              Episode - <span className="font-semibold">{episode.episode}</span>
+            </p>
+            <p>Air Date - {episode.air_date}</p>
+          </div>
+        ))}
       </div>
-
       <Pagination className="py-5">
         <PaginationContent>
           <PaginationItem
@@ -122,4 +96,4 @@ const AllCharacters = () => {
   );
 };
 
-export default AllCharacters;
+export default AllEpisodes;

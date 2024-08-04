@@ -64,6 +64,7 @@ const Home = () => {
           onClick={() => {
             navigate("/all-characters");
           }}
+          className="w-1/2 mx-auto rounded-xl"
         >
           Get Started
           <ChevronRightIcon className="ml-5 h-4 w-4" />

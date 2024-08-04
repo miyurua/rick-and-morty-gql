@@ -11,8 +11,8 @@ const Navbar = () => {
       </Link>
       <div className="flex flex-row gap-5">
         <Link to={"/all-characters"}>Characters</Link>
-        <Link to={"/episodes"}>Episodes</Link>
-        <Link to={"/locations"}>Locations</Link>
+        <Link to={"/all-episodes"}>Episodes</Link>
+        <Link to={"/all-locations"}>Locations</Link>
       </div>
     </div>
   );
