@@ -6,10 +6,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center justify-center p-5 gap-5">
+    <div className="flex flex-grow flex-col items-center justify-center p-5 gap-5">
       <p className="text-4xl font-semibold">Welcome to Rick and Morty Wiki</p>
       <p className="text-2xl font-semibold">About Rick and Morty</p>
-      <p className="w-1/2 text-justify">
+      <p className="w-full sm:w-1/2 text-justify">
         Welcome to the Rick and Morty Wiki, the ultimate portal for all things
         related to the mind-bending, dimension-hopping, and hilariously dark
         animated series created by Justin Roiland and Dan Harmon. Here, you'll
@@ -17,7 +17,7 @@ const Home = () => {
         and more!
       </p>
       <p className="text-2xl font-semibold">Explore the Multiverse</p>
-      <p className="w-1/2 text-justify">
+      <p className="w-full sm:w-1/2 text-justify">
         Dive into the multiverse with us as we explore the bizarre and
         intriguing world of Rick Sanchez, the eccentric and often irresponsible
         scientist, and his good-hearted but easily influenced grandson, Morty
@@ -25,7 +25,7 @@ const Home = () => {
         life on Earth, we cover it all.
       </p>
       <p className="text-2xl font-semibold">What You Can Find Here:</p>
-      <p className="w-1/2 text-justify">
+      <p className="w-full sm:w-1/2 text-justify">
         <ul className="flex flex-col gap-4">
           <li>
             Episode Guides: Detailed summaries, memorable quotes, and Easter
@@ -46,7 +46,7 @@ const Home = () => {
       </p>
 
       <p className="text-2xl font-semibold">Join the Community</p>
-      <p className="w-1/2 text-justify">
+      <p className="w-full sm:w-1/2 text-justify">
         Connect with fellow fans, contribute to our growing database, and share
         your theories and insights. Whether you're a seasoned fan or new to the
         series, there's a place for you in our community.

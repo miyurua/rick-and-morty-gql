@@ -22,7 +22,7 @@ const SingleCharacter = () => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col items-center w-1/4 gap-5">
+        <div className="flex flex-col items-center w-full sm:w-1/4 gap-5">
           <img
             src={currentCharacter?.image}
             alt={currentCharacter?.name}

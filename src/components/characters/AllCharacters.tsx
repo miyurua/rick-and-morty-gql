@@ -12,8 +12,8 @@ const AllCharacters = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="p-5">
-      <div className="grid grid-cols-4 gap-4">
+    <div className="flex items-center justify-center p-5">
+      <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
         {loading
           ? Array.from({ length: 4 }).map((_, index) => (
               <div className="flex flex-col space-y-3" key={index}>
