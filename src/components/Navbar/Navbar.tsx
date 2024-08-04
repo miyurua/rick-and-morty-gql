@@ -7,7 +7,10 @@ const Navbar = () => {
         Rick and Morty Wiki
       </Link>
       <Link to={"/"} className="sm:hidden block">
-        Home
+        <img
+          src="https://static-00.iconduck.com/assets.00/morty-icon-1772x2048-dmm773c0.png"
+          className="w-[25px] h-[25px] mx-auto my-auto"
+        />
       </Link>
       <div className="flex flex-row gap-5">
         <Link to={"/all-characters"}>Characters</Link>
