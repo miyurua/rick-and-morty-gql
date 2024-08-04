@@ -12,16 +12,33 @@ import {
   PaginationPrevious,
 } from "../ui/pagination";
 import { useNavigate } from "react-router-dom";
+import { Input } from "../ui/input";
 
 const AllEpisodes = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentSearch, setCurrentSearch] = useState<string>("");
+
   const navigate = useNavigate();
   const { data } = useQuery<Data>(GET_ALL_EPISODES, {
-    variables: { page: currentPage },
+    variables: {
+      page: currentPage,
+      filter: {
+        name: currentSearch,
+      },
+    },
   });
 
   return (
     <div className="flex items-center justify-center p-5 flex-col gap-5">
+      <Input
+        type="search"
+        placeholder="Search..."
+        className="rounded-xl w-full sm:w-1/3 border-slate-300"
+        onChange={(e) => {
+          setCurrentSearch(e.target.value);
+          setCurrentPage(1);
+        }}
+      />
       <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
         {data?.episodes.results.map((episode) => (
           <div

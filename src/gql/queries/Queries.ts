@@ -37,8 +37,8 @@ query Query($ids: [ID!]!) {
 }`
 
 export const GET_ALL_EPISODES = gql`
-query Episodes($page: Int) {
-  episodes(page: $page) {
+query Episodes($page: Int, $filter: FilterEpisode) {
+  episodes(page: $page, filter: $filter) {
     info {
       count
     }
