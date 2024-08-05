@@ -45,20 +45,17 @@ const Home = () => {
         <p className="text-justify">
           <ul className="flex flex-col gap-4">
             <li>
-              Episode Guides: Detailed summaries, memorable quotes, and Easter
-              eggs for every episode.
-            </li>
-            <li>
               Characters: In-depth profiles of your favorite (and least
               favorite) characters, from Rick and Morty to Mr. Meeseeks and
               Birdperson.
             </li>
             <li>
+              Episode Guide: Explore each episode, complete with air dates and
+              the characters featured.
+            </li>
+            <li>
               Locations: Discover the weird and wonderful places visited in the
-              show, from the Citadel of Ricks to Gazorpazorp. Lore and Theories:
-              Unpack the complex lore and fan theories that make the Rick and
-              Morty universe so captivating. News and Updates: Stay up-to-date
-              with the latest news, upcoming episodes, and exclusive content.
+              show, from the Citadel of Ricks to Gazorpazorp.
             </li>
           </ul>
         </p>
