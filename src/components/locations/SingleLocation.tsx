@@ -13,7 +13,7 @@ const SingleLocation = () => {
 
   return (
     !loading && (
-      <div className="flex flex-col p-5 items-center justify-center gap-5">
+      <div className="flex flex-col p-5 items-center justify-center gap-5 flex-grow">
         <div className="flex flex-col items-center justify-center gap-5">
           <p className="text-4xl font-bold text-center">
             Location -{" "}

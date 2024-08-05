@@ -7,6 +7,7 @@ import AllEpisodes from "./components/episodes/AllEpisodes";
 import SingleEpisode from "./components/episodes/SingleEpisode";
 import AllLocations from "./components/locations/AllLocations";
 import SingleLocation from "./components/locations/SingleLocation";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/all-locations" element={<AllLocations />} />
         <Route path="/all-locations/:id" element={<SingleLocation />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
