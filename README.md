@@ -1,30 +1,71 @@
-# React + TypeScript + Vite
+# Rick and Morty Wiki
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Rick and Morty Wiki website! This project leverages modern web development technologies to create a comprehensive and dynamic wiki for Rick and Morty characters, episodes, and locations. 
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Demo](#demo)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo
+https://rick-and-morty-gql-eight.vercel.app/
 
-## Expanding the ESLint configuration
+## Features
+- **Dynamic Content**: Fetches and displays data in real-time from the Rick and Morty API.
+- **GraphQL Integration**: Utilizes GraphQL for efficient data querying and manipulation.
+- **Responsive Design**: Fully responsive and mobile-friendly interface.
+- **Interactive UI**: Smooth and interactive user interface with modern minor animations.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
+### Rick and Morty API with GraphQL
+The Rick and Morty API is a RESTful and GraphQL API based on the television show "Rick and Morty". It allows us to fetch data about characters, episodes, and locations. By using GraphQL, we can request specific data and handle complex queries efficiently.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+### React
+React is a JavaScript library for building user interfaces. It allows us to create reusable UI components, manage state, and build single-page applications (SPAs) with ease.
+
+### Vite
+Vite is a fast build tool and development server for modern web projects. It provides a highly optimized development environment with fast hot module replacement (HMR).
+
+### TypeScript
+TypeScript is a strongly typed programming language that builds on JavaScript. It adds static typing to the language, making the code more robust and easier to maintain.
+
+### Tailwind CSS
+Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces. It provides low-level utility classes that can be composed to build any design directly in your markup.
+
+### ShadCN
+ShadCN is a component library that provides pre-designed and customizable UI components. It helps speed up the development process by offering ready-to-use components that adhere to modern design principles.
+
+## Installation
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Clone the Repository
+```bash
+git clone https://github.com/yourusername/rick-and-morty-wiki.git
+cd rick-and-morty-wiki
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Install the Dependencies
+```bash
+npm install
+```
+## Usage
+
+### Run the Development Server
+```yarn
+npm run dev
+```
+
+## Contributing
+Contributions are welcome! Please feel free to submit a Pull Request or open an issue.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+Feel free to modify the content as needed to better fit your project specifics.
