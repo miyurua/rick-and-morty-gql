@@ -14,6 +14,7 @@ import {
 } from "../ui/pagination";
 import { Input } from "../ui/input";
 import CharacterCard from "../common/CharacterCard";
+import CharacterCardSkeleton from "../skeletons/CharacterCardSkeleton";
 
 const AllCharacters = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -42,16 +43,10 @@ const AllCharacters = () => {
         }}
       />
       <p className="text-4xl font-semibold">All Characters</p>
-      <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-4 grid-cols-1 gap-4">
         {loading
-          ? Array.from({ length: 4 }).map((_, index) => (
-              <div className="flex flex-col space-y-3" key={index}>
-                <Skeleton className="h-[125px] w-[250px] rounded-xl" />
-                <div className="space-y-2">
-                  <Skeleton className="h-4 w-[250px]" />
-                  <Skeleton className="h-4 w-[200px]" />
-                </div>
-              </div>
+          ? Array.from({ length: 20 }).map((_, index) => (
+              <CharacterCardSkeleton key={index} />
             ))
           : data?.characters.results.map((character) => (
               <CharacterCard

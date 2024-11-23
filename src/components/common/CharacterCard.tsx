@@ -21,13 +21,13 @@ const CharacterCard: React.FC<CharacterProps> = ({
   return (
     <div
       key={id}
-      className="flex border rounded-xl p-4 gap-4 flex-col hover:cursor-pointer hover:bg-slate-200 duration-500"
+      className="flex border rounded-xl p-4 gap-3 flex-col hover:cursor-pointer hover:bg-slate-200 duration-500 w-80 h-96"
       onClick={() => {
         navigate(`/all-characters/${id}`);
       }}
     >
       <div className="relative">
-        <img src={image} className="rounded-xl w-full" alt={name} />
+        <img src={image} className="rounded-xl w-full h-72" alt={name} />
         <div
           className={`absolute top-0 right-0 text-white p-2 rounded-tr-xl rounded-bl-xl ${
             status === "Alive" ? "bg-lime-600" : "bg-red-600"

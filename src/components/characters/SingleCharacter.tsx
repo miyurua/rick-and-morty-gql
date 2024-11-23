@@ -2,7 +2,7 @@ import { GET_CHARACTER_BY_ID } from "@/gql/queries/Queries";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { CharactersByIdData } from "./types";
-import { Skeleton } from "../ui/skeleton";
+import SingleCharacterSkeleton from "../skeletons/SingleCharacterSkeleton";
 
 const SingleCharacter = () => {
   const { id } = useParams();
@@ -14,13 +14,7 @@ const SingleCharacter = () => {
   return (
     <div className="flex flex-col p-5 items-center justify-center">
       {loading ? (
-        <div className="flex flex-col space-y-3">
-          <Skeleton className="h-[125px] w-[250px] rounded-xl" />
-          <div className="space-y-2">
-            <Skeleton className="h-4 w-[250px]" />
-            <Skeleton className="h-4 w-[200px]" />
-          </div>
-        </div>
+        <SingleCharacterSkeleton />
       ) : (
         <div className="flex flex-col items-center w-full sm:w-1/4 gap-5">
           <p className="text-4xl font-bold text-center">

@@ -13,13 +13,14 @@ import {
 } from "../ui/pagination";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../ui/input";
+import EpisodeLocationSkeleton from "../skeletons/EpisodeLocationSkeleton";
 
 const AllLocations = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentSearch, setCurrentSearch] = useState<string>("");
   const navigate = useNavigate();
 
-  const { data } = useQuery<Data>(GET_ALL_LOCATIONS, {
+  const { data, loading } = useQuery<Data>(GET_ALL_LOCATIONS, {
     variables: {
       page: currentPage,
       filter: {
@@ -40,22 +41,26 @@ const AllLocations = () => {
         }}
       />
       <p className="text-4xl font-semibold">All Locations</p>
-      <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
-        {data?.locations.results.map((location) => (
-          <div
-            className="flex border rounded-xl p-4 gap-4 flex-col hover:cursor-pointer hover:bg-slate-200 duration-500"
-            onClick={() => {
-              navigate(`/all-locations/${location.id}`);
-            }}
-          >
-            <p className="font-semibold">{location.name}</p>
-            <p>
-              Dimension -{" "}
-              <span className="font-semibold">{location.dimension}</span>
-            </p>
-            <p>Type - {location.type}</p>
-          </div>
-        ))}
+      <div className="grid sm:grid-cols-4 grid-cols-1 gap-4">
+        {loading
+          ? [...Array(20)].map((_, index) => (
+              <EpisodeLocationSkeleton key={index}></EpisodeLocationSkeleton>
+            ))
+          : data?.locations.results.map((location) => (
+              <div
+                className="flex border rounded-xl p-4 gap-4 flex-col hover:cursor-pointer hover:bg-slate-200 duration-500  w-80"
+                onClick={() => {
+                  navigate(`/all-locations/${location.id}`);
+                }}
+              >
+                <p className="font-semibold">{location.name}</p>
+                <p>
+                  Dimension -{" "}
+                  <span className="font-semibold">{location.dimension}</span>
+                </p>
+                <p>Type - {location.type}</p>
+              </div>
+            ))}
       </div>
       <Pagination className="py-5">
         <PaginationContent>
