@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_ALL_CHARACTERS } from "../../gql/queries/Queries";
 import { Data } from "./types";
-import { Skeleton } from "../ui/skeleton";
 import { useState } from "react";
 import {
   Pagination,
